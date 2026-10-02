@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mist chat 友だち招待</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif; line-height: 1.9; color: #333; max-width: 720px; margin: 0 auto; padding: 24px 20px 60px; }
+  h1 { font-size: 1.5rem; border-bottom: 3px solid #5a4fcf; padding-bottom: 12px; }
+  h2 { font-size: 1.15rem; margin-top: 2em; border-left: 5px solid #5a4fcf; padding-left: 10px; }
+  dt { font-weight: 600; margin-top: 1.2em; }
+  dd { margin-left: 0; color: #555; }
+  a { color: #5a4fcf; }
+  li { margin-bottom: 0.5em; }
+  footer { margin-top: 3em; padding-top: 1em; border-top: 1px solid #ddd; font-size: 0.8rem; color: #888; }
+  .id-box { font-size: 1.6rem; font-weight: 700; letter-spacing: 0.05em; background: #f4f2ff; border-radius: 12px; padding: 16px; text-align: center; margin: 1em 0; word-break: break-all; }
+  .btn { display: inline-block; background: #5a4fcf; color: #fff; text-decoration: none; padding: 10px 22px; border-radius: 22px; }
+</style>
+</head>
+<body>
+<h1>Mist chat への招待</h1>
+<p>友だちが Mist chat であなたを待っています。アプリを入れて、下のIDで友だちを追加してください。</p>
+<div class="id-box" id="invite-id">（IDが見つかりません）</div>
+<ol>
+  <li>App Store から「Mist chat」を入れて、ログインします。</li>
+  <li>画面右上の人の形のボタン（友だち追加）から、上のIDを検索して追加します。</li>
+</ol>
+<p><a class="btn" href="https://apps.apple.com/app/id6792540871">App Store で開く</a></p>
+<footer>
+<p><a href="support.html">サポート</a> ・ <a href="privacy.html">プライバシーポリシー</a></p>
+</footer>
+<script>
+  // URL の ?id= を表示する(文字として入れるので、HTML としては解釈されない)
+  (function () {
+    var id = new URLSearchParams(location.search).get('id');
+    if (id && /^[A-Za-z0-9_-]{1,40}$/.test(id)) document.getElementById('invite-id').textContent = id;
+  })();
+</script>
+</body>
+</html>
